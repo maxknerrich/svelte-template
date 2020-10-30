@@ -1,9 +1,8 @@
 module.exports = {
-  extends: ['airbnb'],
+  extends: ['airbnb-base'],
   parser: 'babel-eslint',
   parserOptions: {
     ecmaVersion: 2020,
-    // Can I remove these now?
     ecmaFeatures: {
       impliedStrict: true,
       classes: true,
@@ -18,7 +17,11 @@ module.exports = {
   overrides: [
     {
       files: ['**/*.svelte'],
-      processor: 'svelte3/svelte3'
+      processor: 'svelte3/svelte3',
+      rules: {
+        'import/no-duplicates': 'off',
+        'import/no-mutable-exports': 'off',
+      }
     }
   ],
   rules: {
